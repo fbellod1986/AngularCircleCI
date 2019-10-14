@@ -24,8 +24,8 @@ jobs: # a collection of steps
           paths:
             - ./node_modules
       - run: # run tests
-          name: test
-          command: npm test
+          # name: test
+          # command: npm test
       - run: # run coverage report
           name: code-coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'
@@ -33,10 +33,10 @@ jobs: # a collection of steps
       - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
-          path: test-results.xml
-          prefix: tests
+          # path: test-results.xml
+          # prefix: tests
       - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
-          path: coverage
-          prefix: coverage
+          # path: coverage
+          # prefix: coverage
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test-results.xml
+          # path: test-results.xml
